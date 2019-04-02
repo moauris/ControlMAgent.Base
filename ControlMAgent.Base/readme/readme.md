@@ -1,10 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+# 'Control-M/Agent Base' Class
 
+## Introduction
+
+This class is designed to contain some basic types of the Control-M Agent Automatic Reception Application.
+
+## Version 0.0.0.1
+
+![Debug 1](C:\Users\MoChen\source\repos\ControlMAgent.Base\ControlMAgent.Base\readme\Debug 1.bmp)
+
+This dll can do this. Current Development note.
+
+Okay, it's a success, now we can correctly get the next single row.
+
+![1554185051881](C:\Users\MoChen\source\repos\ControlMAgent.Base\ControlMAgent.Base\readme\1554185051881.png)
+
+Next is to extend next area. The extension should be 4 columns.
+
+![1554187215662](C:\Users\MoChen\source\repos\ControlMAgent.Base\ControlMAgent.Base\readme\1554187215662.png)
+
+Successful. Now Plug this into the main application.
+
+Below is the base code for version 0.0.0.1:
+
+```C#
 namespace ControlMAgent.Base
 {
     internal interface ICellRange
@@ -134,3 +152,6 @@ namespace ControlMAgent.Base
         }
     }
 }
+
+```
+
