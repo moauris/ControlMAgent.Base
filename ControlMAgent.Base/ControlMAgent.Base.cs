@@ -114,6 +114,19 @@ namespace ControlMAgent.Base
             return endinRange;
         }
 
+        public string NextRow(int skiprow)
+        {
+            if (skiprow < 1)
+                throw new InvalidOperationException("Row Skipped cannot be less than 1.");
+            Match rxMatch = new Regex(@"^\$(?'C0'\w+)\$(?'R0'\d+)$").Match(endinRange);
+            char Col = Convert.ToChar(rxMatch.Groups["C0"].Value);
+            int Row = Convert.ToInt32(rxMatch.Groups["R0"].Value);
+            Row += skiprow;
+            endinRange = startRange = Comb_Cell(Col, Row);
+            currentRange = string.Format(@"{0}:{0}", endinRange);
+            return endinRange;
+        }
+                
         public string NextArea(int RowsDown)
         {
             //throw new NotImplementedException();
@@ -130,7 +143,7 @@ namespace ControlMAgent.Base
                 , Comb_Cell(Col, RowS), Comb_Cell(ColE, RowE));
             startRange = Comb_Cell(Col, RowS);
             endinRange = Comb_Cell(Col, RowE);
-            return Extend();
+            return currentRange;
         }
     }
 }
